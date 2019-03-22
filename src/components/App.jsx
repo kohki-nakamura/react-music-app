@@ -12,7 +12,8 @@ export default class App extends React.Component {
 
     this.state = {
       keyword: "",
-      resultType: "init"
+      resultType: "init",
+      items: []
     };
   }
 
@@ -32,7 +33,8 @@ export default class App extends React.Component {
           });
         } else {
           this.setState({
-            resultType: "success"
+            resultType: "success",
+            items: data.results
           });
         }
       })
@@ -48,7 +50,7 @@ export default class App extends React.Component {
       case "no_result":
         return <NoResult />;
       case "success":
-        return <Result />;
+        return <Result items={this.state.items} />;
       case "failure":
         return <ErrorPage />;
       default:

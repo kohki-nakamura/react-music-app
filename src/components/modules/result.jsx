@@ -5,8 +5,8 @@ export default class Result extends React.Component {
   render() {
     return (
       <ul>
-        {[].map((item, index) => (
-          <Item key={index} />
+        {this.props.items.map((item, index) => (
+          <Item item={item} key={index} />
         ))}
       </ul>
     );
